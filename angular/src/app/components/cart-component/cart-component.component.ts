@@ -3,10 +3,10 @@ import { AppServiceService } from 'src/app/app-service.service';
 
 @Component({
     selector: 'app-chart-component',
-    templateUrl: './chart-component.component.html',
-    styleUrls: ['./chart-component.component.css']
+    templateUrl: './cart-component.component.html',
+    styleUrls: ['./cart-component.component.css']
 })
-export class ChartComponentComponent {
+export class CartComponentComponent {
     // Injection always created by constructor
     constructor(private appService: AppServiceService) { }
 

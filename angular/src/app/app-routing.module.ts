@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 import { HomeComponentComponent } from './components/home-component/home-component.component';
 import { ProductsComponentComponent } from './components/products-component/products-component.component';
 import { ProductComponentComponent } from './components/product-component/product-component.component';
-import { ChartComponentComponent } from './components/chart-component/chart-component.component';
+import { CartComponentComponent } from './components/cart-component/cart-component.component';
 import { ErrorComponentComponent } from './components/error-component/error-component.component';
 
 const routes: Routes = [ // Sets up routes constant where you define your routes
@@ -56,7 +56,7 @@ const routes: Routes = [ // Sets up routes constant where you define your routes
     },
     {
         path: 'chart',
-        component: ChartComponentComponent,
+        component: CartComponentComponent,
         resolve: {
             resolveData: () => {
                 document.title = 'Chart';

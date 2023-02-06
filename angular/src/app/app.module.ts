@@ -9,7 +9,7 @@ import { AppServiceService } from './app-service.service';
 // Components
 import { AppComponent } from './app.component';
 import { ProductsComponentComponent } from './components/products-component/products-component.component';
-import { ChartComponentComponent } from './components/chart-component/chart-component.component';
+import { CartComponentComponent } from './components/cart-component/cart-component.component';
 import { HomeComponentComponent } from './components/home-component/home-component.component';
 import { ProductComponentComponent } from './components/product-component/product-component.component';
 import { ErrorComponentComponent } from './components/error-component/error-component.component';
@@ -18,7 +18,7 @@ import { ErrorComponentComponent } from './components/error-component/error-comp
     declarations: [
         AppComponent,
         ProductsComponentComponent,
-        ChartComponentComponent,
+        CartComponentComponent,
         HomeComponentComponent,
         ProductComponentComponent,
         ErrorComponentComponent
