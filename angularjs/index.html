@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app"> <!-- Name of angular module -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Angular JS</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+</head>
+
+<body ng-controller="AppController as list">
+    <!-- All -->
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="sidebar-navigation">
+            <ul>
+                <a href="#!">
+                    <li class="navItem" id="navHome">
+                        <i class="fa fa-home"></i>
+                        <span class="tooltip">Home</span>
+                    </li>
+                </a>
+                <a href="#!products">
+                    <li class="navItem" id="navProducts">
+                        <i class="fa fa-box"></i>
+                        <span class="tooltip">Products</span>
+                    </li>
+                </a>
+                <a href="#!chart">
+                    <li class="navItem" id="navChart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="tooltip">Chart</span>
+                    </li>
+                </a>
+            </ul>
+        </nav>
+
+        <!-- Content Page -->
+        <div class="content">
+            <p id="title">SHOP&nbsp;&nbsp;<span style="color: rgb(51, 109, 190)">CONTROL</span>&nbsp;&nbsp;ADMIN</p>
+
+            <div class="all">
+                <!-- Show Pages !important -->
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>

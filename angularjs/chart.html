@@ -1,0 +1,42 @@
+<!-- Add To Chart -->
+<div id="insertProduct">
+    <label for="exampleDataList" class="form-label">Product</label>
+    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..."
+        ng-model="list.selectedProduct">
+    <datalist id="datalistOptions">
+        <option ng-repeat="product in list.products" value="{{product.name}}"></option>
+    </datalist>
+    <input type="text" ng-model="list.amount" placeholder="Amount" />
+    <input type="button" value="Add To Chart" ng-click="list.addToChart()" id="addProduct">
+</div>
+<br /><br /><br /><br />
+
+<!-- Show Chart -->
+<p>Chart</p>
+<br />
+<table cellspacing="0" class="table">
+    <thead>
+        <tr class="tr-dark">
+            <td>Product</td>
+            <td>Cost</td>
+            <td>Amount</td>
+            <td>Total</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="product in list.chart">
+            <td>{{product.name}}</td>
+            <td>{{product.cost}}€</td>
+            <td>{{product.amount}}</td>
+            <td>{{product.total}}€</td>
+        </tr>
+        <tr class="total">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{list.getTotalChart()}}€</td>
+        </tr>
+    </tbody>
+</table>
+
+<a class="checkout">Buy Now</a>

@@ -1,0 +1,26 @@
+<!-- Add Product -->
+<p>Insert Product</p>
+<div id="insertProduct">
+    <input type="text" ng-model="list.name" placeholder="Name" id="nameProduct">
+    <input type="text" ng-model="list.cost" placeholder="Cost" id="costProduct">
+    <input type="button" value="Add Product" ng-click="list.addProduct()" id="addProduct">
+</div>
+<br /><br /><br /><br />
+
+<!-- Show Products -->
+<p>All Products</p>
+<br />
+<table cellspacing="0" class="table">
+    <thead>
+        <tr class="tr-dark">
+            <td>Product</td>
+            <td>Cost</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="product in list.products">
+            <td>{{product.name}}</td>
+            <td>{{product.cost}}€</td>
+        </tr>
+    </tbody>
+</table>

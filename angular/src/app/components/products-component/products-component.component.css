@@ -1,0 +1,7 @@
+.products td {
+    border-left: none !important;
+    border-right: none !important;
+}
+.products td:nth-child(3) {
+    border-right: 1px solid #eceeef !important;
+}

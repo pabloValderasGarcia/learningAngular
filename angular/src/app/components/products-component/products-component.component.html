@@ -1,0 +1,38 @@
+<div class="all">
+    <!-- Add Product -->
+    <p>Insert Product</p>
+    <div id="insertProduct">
+        <input type="text" placeholder="Name" id="nameProduct" #name>
+        <input type="text" placeholder="Cost" id="costProduct" #cost>
+        <input type="button" value="Add Product" (click)="addProduct(name, cost)" id="addProduct">
+    </div>
+    <br /><br /><br /><br />
+
+    <!-- Show Products -->
+    <p>All Products</p>
+    <br />
+    <table cellspacing="0" class="table">
+        <thead>
+            <tr class="tr-dark">
+                <td>Product</td>
+                <td>Cost</td>
+                <td>Show</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; let i = index">
+                <td>{{product.name}}</td>
+                <td class="tdNumber">{{product.cost}}€</td>
+                <td class="tdTrash"><i class="fa-solid fa-eye" (click)="showItemProducts(product.name)"></i></td>
+                <td class="tdTrash"><i class="fa fa-trash" (click)="removeItemProducts(product.name)"></i></td>
+            </tr>
+            <tr class="products">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="tdTrash"><i class="fa-solid fa-circle-xmark" *ngIf="products.length>0" (click)="removeAllProducts()"></i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,30 @@
+<!-- All -->
+<div class="container">
+  <!-- Navigation -->
+  <nav class="sidebar-navigation">
+    <ul>
+      <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <li class="navItem" id="navHome">
+          <i class="fa fa-home"></i>
+          <span class="tooltip">Home</span>
+        </li>
+      </a>
+      <a routerLink="/products" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <li class="navItem" id="navProducts">
+          <i class="fa fa-box"></i>
+          <span class="tooltip">Products</span>
+        </li>
+      </a>
+      <a routerLink="/chart" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <li class="navItem" id="navChart">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="tooltip">Chart</span>
+        </li>
+      </a>
+    </ul>
+  </nav>
+  <!-- Content Page -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

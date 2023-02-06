@@ -1,0 +1,15 @@
+.tableShow {
+    margin-bottom: 2em;
+}
+.goBack {
+    color: white;
+    border: 1px solid rgb(51, 109, 190);
+    padding: .7em 1.5em;
+    cursor: pointer;
+    background-color: rgb(51, 109, 190);
+    transition: .2s ease;
+}
+.goBack:hover {
+    border: 1px solid rgb(33, 70, 123);
+    background-color: rgb(33, 70, 123);
+}
