@@ -31,15 +31,15 @@ app.config(function($routeProvider) {
             }
         }
     })
-    .when('/chart', {
-        templateUrl: 'chart.html',
+    .when('/cart', {
+        templateUrl: 'cart.html',
         resolve: {
             resolveData: () => {
                 document.getElementById('title').style.display = 'none';
                 navItems.forEach(item => {
                     item.classList.remove('active');
                 });
-                document.getElementById('navChart').classList.add('active');
+                document.getElementById('navCart').classList.add('active');
             }
         }
     });
@@ -56,8 +56,8 @@ app.controller('AppController', function ($scope) { // Scope: vínculo entre htm
         { name: 'Banana', cost: 1.55 }
     ]
 
-    // Chart
-    list.chart = [];
+    // Cart
+    list.cart = [];
 
     // Add Product To Visual
     list.addProduct = () => {
@@ -80,38 +80,38 @@ app.controller('AppController', function ($scope) { // Scope: vínculo entre htm
         }
     }
 
-    // Add Product To Chart
-    list.addToChart = () => {
+    // Add Product To Cart
+    list.addToCart = () => {
         // Get Selected Product Values
         let name = list.selectedProduct;
         let amount = list.amount;
         let product = list.products.find(prd => prd.name == name);
 
-        // Add To Chart
+        // Add To Cart
         let existsProduct = false;
-        list.chart.forEach(product => {
-            if (product.name == name) existsProduct = {exists: true, product: list.chart.indexOf(product)};
+        list.cart.forEach(product => {
+            if (product.name == name) existsProduct = {exists: true, product: list.cart.indexOf(product)};
         });
         if (product != undefined && amount > 0 && amount == parseInt(amount) && !existsProduct.exists) {
             let total = product.cost * amount;
-            list.chart.push({
+            list.cart.push({
                 name: product.name,
                 cost: product.cost,
                 amount: parseInt(amount),
                 total: parseFloat(total.toFixed(2))
             });
         } else if (existsProduct.exists) {
-            list.chart[existsProduct.product].amount = 
-            list.chart[existsProduct.product].amount + parseInt(amount);
-            list.chart[existsProduct.product].total =
-            parseFloat((list.chart[existsProduct.product].amount * list.chart[existsProduct.product].cost).toFixed(2));
+            list.cart[existsProduct.product].amount = 
+            list.cart[existsProduct.product].amount + parseInt(amount);
+            list.cart[existsProduct.product].total =
+            parseFloat((list.cart[existsProduct.product].amount * list.cart[existsProduct.product].cost).toFixed(2));
         }
     }
 
-    // Get Total Chart
-    list.getTotalChart = () => {
+    // Get Total Cart
+    list.getTotalCart = () => {
         let total = 0;
-        list.chart.forEach(x => {
+        list.cart.forEach(x => {
             total += x.total;
         });
         return total.toFixed(2);

@@ -44,7 +44,7 @@ export class AppServiceService {
         this.products.forEach(product => {
             if (product.name == selectedProduct) {
                 this.products.splice(this.products.indexOf(product), 1);
-                this.chart.splice(this.chart.indexOf(product), 1);
+                this.cart.splice(this.cart.indexOf(product), 1);
             }
         });
     }
@@ -54,59 +54,59 @@ export class AppServiceService {
         this.products = [];
     }
 
-    // ------------ CHART ------------
+    // ------------ CART ------------
 
-    // Chart
-    chart: any[] = [];
+    // Cart
+    cart: any[] = [];
 
-    // Add Product To Chart
-    addToChart(selectedProduct: HTMLInputElement, amount: HTMLInputElement): void {
+    // Add Product To Cart
+    addToCart(selectedProduct: HTMLInputElement, amount: HTMLInputElement): void {
         // Get Selected Product Values
         let nameProduct = selectedProduct.value;
         let amountProduct = parseInt(amount.value);
         let product = this.products.find(prd => prd.name == nameProduct);
 
-        // Add To Chart
+        // Add To Cart
         let existsProduct: any = false;
-        this.chart.forEach(product => {
-            if (product.name == nameProduct) existsProduct = { exists: true, product: this.chart.indexOf(product) };
+        this.cart.forEach(product => {
+            if (product.name == nameProduct) existsProduct = { exists: true, product: this.cart.indexOf(product) };
         });
         if (product != undefined && amountProduct > 0 && !existsProduct.exists) {
             let total = product.cost * amountProduct;
-            this.chart.push({
+            this.cart.push({
                 name: product.name,
                 cost: product.cost,
                 amount: amountProduct,
                 total: parseFloat(total.toFixed(2))
             });
         } else if (existsProduct.exists) {
-            this.chart[existsProduct.product].amount =
-                this.chart[existsProduct.product].amount + amountProduct;
-            this.chart[existsProduct.product].total =
-                parseFloat((this.chart[existsProduct.product].amount * this.chart[existsProduct.product].cost).toFixed(2));
+            this.cart[existsProduct.product].amount =
+                this.cart[existsProduct.product].amount + amountProduct;
+            this.cart[existsProduct.product].total =
+                parseFloat((this.cart[existsProduct.product].amount * this.cart[existsProduct.product].cost).toFixed(2));
         }
     }
 
-    // Get Total Chart
-    getTotalChart(): number {
+    // Get Total Cart
+    getTotalCart(): number {
         let total = 0;
-        this.chart.forEach(x => {
+        this.cart.forEach(x => {
             total += x.total;
         });
         return parseInt(total.toFixed(2));
     }
 
-    // Remove item from chart
-    removeItemChart(selectedProduct: HTMLInputElement): void {
-        this.chart.forEach(product => {
+    // Remove item from cart
+    removeItemCart(selectedProduct: HTMLInputElement): void {
+        this.cart.forEach(product => {
             if (product.name == selectedProduct) {
-                this.chart.splice(this.chart.indexOf(product), 1);
+                this.cart.splice(this.cart.indexOf(product), 1);
             }
         });
     }
 
-    // Remove all chart's items
-    removeAllChart(): void {
-        this.chart = [];
+    // Remove all cart's items
+    removeAllCart(): void {
+        this.cart = [];
     }
 }

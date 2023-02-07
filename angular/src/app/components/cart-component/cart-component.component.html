@@ -1,5 +1,5 @@
 <div class="all">
-    <!-- Add To Chart -->
+    <!-- Add To Cart -->
     <div id="insertProduct">
         <label for="exampleDataList" class="form-label">Select Product</label>
         <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..."
@@ -8,12 +8,12 @@
             <option *ngFor="let product of products; let i = index" value="{{product.name}}"></option>
         </datalist>
         <input type="text" placeholder="Amount" #amount required />
-        <input type="button" value="Add To Chart" (click)="addToChart(selectedProduct, amount)" id="addProduct">
+        <input type="button" value="Add To Cart" (click)="addToCart(selectedProduct, amount)" id="addProduct">
     </div>
     <br /><br /><br /><br />
 
-    <!-- Show Chart -->
-    <p>Chart</p>
+    <!-- Show Cart -->
+    <p>Cart</p>
     <br />
     <table cellspacing="0" class="table">
         <thead>
@@ -26,19 +26,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of chart">
+            <tr *ngFor="let product of cart">
                 <td>{{product.name}}</td>
                 <td class="tdNumber">{{product.cost}}€</td>
                 <td>{{product.amount}}</td>
                 <td class="tdNumber">{{product.total}}€</td>
-                <td class="tdTrash"><i class="fa fa-trash" (click)="removeItemChart(product.name)"></i></td>
+                <td class="tdTrash"><i class="fa fa-trash" (click)="removeItemCart(product.name)"></i></td>
             </tr>
             <tr class="total">
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="tdNumber">{{getTotalChart()}}€</td>
-                <td class="tdTrash"><i class="fa-solid fa-circle-xmark" *ngIf="chart.length>0" (click)="removeAllChart()"></i></td>
+                <td class="tdNumber">{{getTotalCart()}}€</td>
+                <td class="tdTrash"><i class="fa-solid fa-circle-xmark" *ngIf="cart.length>0" (click)="removeAllCart()"></i></td>
             </tr>
         </tbody>
     </table>

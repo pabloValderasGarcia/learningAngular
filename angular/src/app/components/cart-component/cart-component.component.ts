@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AppServiceService } from 'src/app/app-service.service';
 
 @Component({
-    selector: 'app-chart-component',
+    selector: 'app-cart-component',
     templateUrl: './cart-component.component.html',
     styleUrls: ['./cart-component.component.css']
 })
@@ -11,22 +11,22 @@ export class CartComponentComponent {
     constructor(private appService: AppServiceService) { }
 
     products: any[] = this.appService.products;
-    chart: any[] = this.appService.chart;
-    addToChart(selectedProduct: HTMLInputElement, amount: HTMLInputElement): void {
-        this.chart = this.appService.chart;
-        this.appService.addToChart(selectedProduct, amount);
+    cart: any[] = this.appService.cart;
+    addToCart(selectedProduct: HTMLInputElement, amount: HTMLInputElement): void {
+        this.cart = this.appService.cart;
+        this.appService.addToCart(selectedProduct, amount);
     }
 
-    getTotalChart(): number {
-        return this.appService.getTotalChart();
+    getTotalCart(): number {
+        return this.appService.getTotalCart();
     }
 
-    removeItemChart(selectedProduct: HTMLInputElement): void {
-        this.appService.removeItemChart(selectedProduct);
+    removeItemCart(selectedProduct: HTMLInputElement): void {
+        this.appService.removeItemCart(selectedProduct);
     }
 
-    removeAllChart(): void {
-        this.chart = [];
-        this.appService.removeAllChart();
+    removeAllCart(): void {
+        this.cart = [];
+        this.appService.removeAllCart();
     }
 }

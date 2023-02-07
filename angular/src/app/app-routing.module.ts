@@ -55,16 +55,16 @@ const routes: Routes = [ // Sets up routes constant where you define your routes
         },
     },
     {
-        path: 'chart',
+        path: 'cart',
         component: CartComponentComponent,
         resolve: {
             resolveData: () => {
-                document.title = 'Chart';
+                document.title = 'Cart';
                 let navItems = document.querySelectorAll('.navItem');
                 navItems.forEach(item => {
                     item.classList.remove('active');
                 });
-                let navItem = document.getElementById('navChart') as HTMLInputElement;
+                let navItem = document.getElementById('navCart') as HTMLInputElement;
                 navItem.classList.add('active');
             }
         }
