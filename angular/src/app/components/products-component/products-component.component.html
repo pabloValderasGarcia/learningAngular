@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products; let i = index">
+            <tr *ngFor="let product of products">
                 <td>{{product.name}}</td>
                 <td class="tdNumber">{{product.cost}}€</td>
                 <td class="tdTrash"><i class="fa-solid fa-eye" (click)="showItemProducts(product.name)"></i></td>
